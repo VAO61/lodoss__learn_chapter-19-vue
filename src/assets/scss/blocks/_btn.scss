@@ -1,0 +1,11 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &_test-class {
+    padding: $offset;
+    border: solid 1px $color-brand;
+    border-radius: $offset / 3;
+  }
+}
