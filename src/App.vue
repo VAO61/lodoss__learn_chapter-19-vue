@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <TemporaryIncludingAllComponent />
+    <Header />
+    <Search />
+    <ResultsNotFound />
     <!-- <SomeNewComponent msg="New component" msgButton="Button" /> -->
   </div>
 </template>
@@ -9,14 +11,18 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 // import SomeNewComponent from "./components/SomeNewComponent.vue";
-import TemporaryIncludingAllComponent from "./components/TemporaryIncludingAllComponent.vue";
+import Header from "./components/Header.vue";
+import Search from "./components/Search.vue";
+import ResultsNotFound from "./components/ResultsNotFound.vue";
 
 export default {
   name: "app",
   components: {
     // HelloWorld
     // SomeNewComponent,
-    TemporaryIncludingAllComponent
+    Header,
+    Search,
+    ResultsNotFound
   }
 };
 </script>
