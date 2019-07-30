@@ -4,10 +4,26 @@ $bp-big: 992px;
 $bp-main: 1280px;
 $bp-main_big: 1920px;
 
-$offset: 15px;
+$offset: 20px;
 $time: 0.3s;
 
-$color-brand: #0095ff;
-// $color-sub-brand: ;
-// $color-text: ;
-// $color-text_lighter: ;
+$color-brand: #0366d6;
+$color-sub-brand: #eb5757;
+$color-sub-brand_lighter: #f1f8fe; // tags
+$color-extras: #f1e05a; // stars
+$color-text: #000;
+$color-text_bright: #e0e0e0; // disable buttons
+$color-text_light: #b3bcc7; // "My list"
+$color-text_lighter: #999999; // titles
+
+$color-bright: #fff;
+$color-shadow: #3c4146; // "bgc"
+
+/*
+bright
+light
+lightly
+shady
+shadow
+dark
+*/
