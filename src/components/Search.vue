@@ -1,14 +1,14 @@
 <template>
   <section class="search container">
     <div class="search__form form">
-      <!-- <select v-model="type">
+      <select v-model="type.model">
         <label for="type">Type</label>
-        <option v-for="value in values" v-bind:key="value">{{value}}</option>
-      </select>-->
-      <select v-model="language">
-        <label for="type">Language</label>
-        <option v-for="value in values" v-bind:key="value">{{value}}</option>
+        <option v-for="option in type.options" v-bind:key="option" :value="option">{{option}}</option>
       </select>
+      <select v-model="language.model">
+        <option v-for="option in language.options" :key="option" :value="option">{{option}}</option>
+      </select>
+      <!-- TODO: v-model="readme" -->
     </div>
   </section>
 </template>
@@ -17,22 +17,30 @@
 export default {
   data() {
     return {
-      type: "select",
-      label: "language",
-      // model: "language",
-      values: [
-        "Javascript",
-        "CSS",
-        "HTML",
-        "PHP",
-        "Ruby",
-        "C++",
-        "Python",
-        "C#",
-        "Java",
-        "Go",
-        "Haskel"
-      ]
+      type: {
+        type: "select",
+        label: "type",
+        model: "type",
+        options: ["Repositories"]
+      },
+      language: {
+        type: "select",
+        label: "language",
+        model: "language",
+        options: [
+          "Javascript",
+          "CSS",
+          "HTML",
+          "PHP",
+          "Ruby",
+          "C++",
+          "Python",
+          "C#",
+          "Java",
+          "Go",
+          "Haskel"
+        ]
+      }
     };
   }
 };
