@@ -1,5 +1,19 @@
 .search {
-  &__fields {
+  &__form {
     display: flex;
+    padding-top: 30px;
+  }
+
+  label {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  select:focus + label {
+    color: red;
+    top: -20px;
   }
 }
