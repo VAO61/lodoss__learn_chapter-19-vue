@@ -1,29 +1,41 @@
 <template>
   <section class="search container">
     <div class="search__form form">
-      <div>
-        <!-- <select v-model="type.model" id="selectType" onchange="testF()"> -->
-        <select v-model="type.model" id="selectType">
-          <option v-for="option in type.options" v-bind:key="option" :value="option">{{option}}</option>
+      <div class="form__item">
+        <!-- <select v-model="type.model" id="selectType" onchange="testFunction()"> -->
+        <select class="form__select" v-model="type.model" id="selectType">
+          <option
+            class="form__option"
+            v-for="option in type.options"
+            v-bind:key="option"
+            :value="option"
+          >{{option}}</option>
         </select>
-        <label for="selectType">Type</label>
+        <label class="form__label" for="selectType">Type</label>
       </div>
-      <div>
-        <select v-model="language.model" id="selectLanguage">
-          <option v-for="option in language.options" :key="option" :value="option">{{option}}</option>
+      <div class="form__item">
+        <select class="form__select" v-model="language.model" id="selectLanguage">
+          <option
+            class="form__option"
+            v-for="option in language.options"
+            :key="option"
+            :value="option"
+          >{{option}}</option>
         </select>
-        <label for="selectLanguage">Language</label>
+        <label class="form__label" for="selectLanguage">Language</label>
       </div>
+      <div class="form__item">Type here for search</div>
+      <button class="form__btn btn btn_brand">search</button>
       <!-- TODO: v-model="readme" -->
     </div>
   </section>
 </template>
 
 <script>
-// const testF = () => {
+// const testFunction = () => {
 //   document.querySelector("select").style.backgroundColor = "red";
 // };
-// testF();
+// testFunction();
 export default {
   data() {
     return {

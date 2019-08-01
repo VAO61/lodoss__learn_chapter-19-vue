@@ -1,10 +1,11 @@
 <template>
-  <main class="main container">
-    <div class="no-results">
-      <!-- По-хорошему, нужен bgi -->
+  <main class="main container no-results">
+    <div class="no-results__container">
       <GitHubLogo />
-      <p class="no-results__title">No results found</p>
-      <p class="no-results__desc">select other parameters and try again</p>
+      <div class="*no-results__desc">
+        <p class="no-results__title">No results found</p>
+        <p class="no-results__desc">select other parameters and try again</p>
+      </div>
     </div>
   </main>
 </template>
@@ -13,7 +14,7 @@
 import GitHubLogo from "../assets/img/github-logo.svg";
 
 export default {
-  name: "Example",
+  name: "SvgLogoGitHub",
   components: {
     GitHubLogo
   }
