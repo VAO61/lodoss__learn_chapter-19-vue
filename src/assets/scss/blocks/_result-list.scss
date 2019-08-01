@@ -1,0 +1,14 @@
+$module: '.result-list';
+
+#{$module} {
+  &__container {
+    display: flex;
+    // flex-direction: row;
+  }
+}
+#{$module}_tile {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
