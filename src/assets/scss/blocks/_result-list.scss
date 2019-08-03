@@ -1,7 +1,7 @@
 $module: '.result';
 $module-tile: '.result-tile';
 
-#{$module} {
+#{$module-tile} {
   &__container {
     display: flex;
     padding-top: 100px;
@@ -32,10 +32,14 @@ $module-tile: '.result-tile';
 
 // ----------------
 
-#{$module-tile} {
+#{$module} {
   &__container {
     display: flex;
     flex-direction: column;
     padding-top: 100px;
+  }
+
+  &__item {
+    display: flex;
   }
 }

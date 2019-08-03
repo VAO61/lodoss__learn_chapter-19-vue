@@ -1,15 +1,11 @@
 <template>
   <main class="main container result-list">
-    <button class="btn btn_red"></button>
-    <button class="btn btn_blue"></button>
-    <!--
-      v-bind:class="isTile ? `${resultTile}__` : `${result}__`"
-    -->
-    <div v-bind:class="isTile ? `${resultTile}__container` : `${result}__container`">
-      <div
-        v-bind:class="isTile ? `${resultTile}__item result-item` : `${result}__item result-item`"
-      >
-        <div v-bind:class="isTile ? `${resultTile}__item-info-wrap` : `${result}__item-info-wrap`">
+    <button :class="`btn btn_red ${isActive('result')}`" @click="setTheme('result')">+</button>
+    <button :class="`btn btn_blue ${isActive('result-tile')}`" @click="setTheme('result-tile')">-</button>
+
+    <div :class="`${theme}__container`">
+      <div :class="`${theme}__item result-item`">
+        <div :class="`${theme}__item-info-wrap`">
           <p class="result-item__language">Javascript</p>
           <p class="result-item__stars">25k</p>
         </div>
@@ -48,9 +44,18 @@
 export default {
   data() {
     return {
-      result: "result",
-      resultTile: "result-tile"
+      theme: "result" // 'result' or 'result-tile'
+      // result: "result",
+      // resultTile: "result-tile"
     };
+  },
+  methods: {
+    isActive: function(value) {
+      return this.theme === value ? "active" : "";
+    },
+    setTheme: function(value) {
+      this.theme = value;
+    }
   }
 };
 </script>
