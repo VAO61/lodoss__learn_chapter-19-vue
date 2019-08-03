@@ -1,8 +1,16 @@
 <template>
   <main class="main container result-list">
-    <button :class="`btn btn_red ${isActive('result')}`" @click="setTheme('result')">+</button>
-    <button :class="`btn btn_blue ${isActive('result-tile')}`" @click="setTheme('result-tile')">-</button>
-
+    <div class="result-list__control">
+      <button
+        :class="`btn result-list__btn ${isActive('result-tile')}`"
+        @click="setTheme('result-tile')"
+      >
+        <IconTile />
+      </button>
+      <button :class="`btn result-list__btn ${isActive('result')}`" @click="setTheme('result')">
+        <IconList />
+      </button>
+    </div>
     <div :class="`${theme}__container`">
       <div :class="`${theme}__item result-item`">
         <div :class="`${theme}__item-info-wrap`">
@@ -23,6 +31,9 @@
 </template>
 
 <script>
+import IconTile from "../assets/img/icon-tile.svg";
+import IconList from "../assets/img/icon-list.svg";
+
 /**
  * TODO: Flags
  */
@@ -49,9 +60,13 @@ export default {
       // resultTile: "result-tile"
     };
   },
+  components: {
+    IconTile,
+    IconList
+  },
   methods: {
     isActive: function(value) {
-      return this.theme === value ? "active" : "";
+      return this.theme === value ? "result-list__btn_active" : "";
     },
     setTheme: function(value) {
       this.theme = value;

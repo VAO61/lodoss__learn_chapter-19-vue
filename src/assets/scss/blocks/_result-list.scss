@@ -1,10 +1,33 @@
 $module: '.result';
 $module-tile: '.result-tile';
 
+.result-list {
+  &__control {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  &__btn {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+
+    &_active {
+      // svg {
+      opacity: 0.6;
+      transition: opacity $time;
+      // }
+    }
+  }
+}
+
 #{$module-tile} {
   &__container {
     display: flex;
-    padding-top: 100px;
+    // padding-top: 100px;
   }
 
   &__item {
@@ -36,10 +59,19 @@ $module-tile: '.result-tile';
   &__container {
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    // padding-top: 100px;
   }
 
   &__item {
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  &__item-info-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: end;
   }
 }
