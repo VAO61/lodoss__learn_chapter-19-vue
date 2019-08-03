@@ -1,0 +1,52 @@
+.result-item {
+  &__language {
+    color: $color-text_lighter;
+  }
+
+  &__stars {
+    &::before {
+      // star-icon
+    }
+  }
+
+  &__main {
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 26px;
+  }
+
+  &__link {
+    color: $color-brand;
+    transition: color $time;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-brand_shady;
+    }
+  }
+
+  &__desc {
+    font-size: 14.5px;
+    line-height: 17px;
+  }
+
+  &__tags {
+    padding-top: 27px;
+  }
+
+  &__tag {
+    margin-right: 11px;
+    padding: 6px 11px 6px 10px;
+    border-radius: 15px;
+    font-size: 12px; // This is wrong solution (min 14px)
+    background-color: $color-sub-brand_lighter;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

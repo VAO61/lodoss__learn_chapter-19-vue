@@ -1,14 +1,41 @@
-$module: '.result-list';
+$module: '.result';
+$module-tile: '.result-tile';
 
 #{$module} {
   &__container {
     display: flex;
-    // flex-direction: row;
+    padding-top: 100px;
+  }
+
+  &__item {
+    flex-basis: 50%;
+    border: 1px solid $color-text_bright;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+    padding: 20px 29px 36px 41px;
+    margin-bottom: 30px;
+
+    &:nth-child(2n + 1) {
+      margin-right: 15px;
+    }
+
+    &:nth-child(2n) {
+      margin-left: 15px;
+    }
+  }
+
+  &__item-info-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
-#{$module}_tile {
+
+// ----------------
+
+#{$module-tile} {
   &__container {
     display: flex;
     flex-direction: column;
+    padding-top: 100px;
   }
 }

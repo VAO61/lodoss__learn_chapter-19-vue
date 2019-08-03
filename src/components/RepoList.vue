@@ -3,15 +3,26 @@
     <button class="btn btn_red"></button>
     <button class="btn btn_blue"></button>
     <!--
-      v-bind:class="isTile ? `${listTile}__` : `${list}__`"
+      v-bind:class="isTile ? `${resultTile}__` : `${result}__`"
     -->
-    <div v-bind:class="isTile ? `${listTile}__container` : `${list}__container`">
-      <div v-bind:class="isTile ? `${listTile}__item` : `${list}__item`">
-        <div v-bind:class="isTile ? `${listTile}__info` : `${list}__info`"></div>
+    <div v-bind:class="isTile ? `${resultTile}__container` : `${result}__container`">
+      <div
+        v-bind:class="isTile ? `${resultTile}__item result-item` : `${result}__item result-item`"
+      >
+        <div v-bind:class="isTile ? `${resultTile}__item-info-wrap` : `${result}__item-info-wrap`">
+          <p class="result-item__language">Javascript</p>
+          <p class="result-item__stars">25k</p>
+        </div>
+        <div class="result-item__main">
+          <a href class="lnk result-item__link result-item__title">TryGhost/Ghost</a>
+          <p class="result-item__desc">The platform for professional publishers</p>
+          <div class="result-item__tags">
+            <span class="result-item__tag">Javascript</span>
+            <span class="result-item__tag">cms</span>
+          </div>
+        </div>
       </div>
-      <!-- .result-list -->
     </div>
-    <!-- :class="ListMode ? TileTheme : RowsTheme" -->
   </main>
 </template>
 
@@ -37,8 +48,8 @@
 export default {
   data() {
     return {
-      list: "result-list",
-      listTile: "result-list_tile"
+      result: "result",
+      resultTile: "result-tile"
     };
   }
 };
