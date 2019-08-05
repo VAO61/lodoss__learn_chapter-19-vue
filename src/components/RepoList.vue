@@ -13,6 +13,7 @@
     </div>
     <div :class="`${theme}__container`">
       <div v-for="item in getItems" :key="item.id" :class="`${theme}__item result-item`">
+        <!-- .item__container -->
         <div :class="`${theme}__item-info-wrap`">
           <p class="result-item__language">Javascript</p>
           <p class="result-item__stars">{{item.stargazers_count}}</p>
@@ -25,6 +26,7 @@
             <span class="result-item__tag">cms</span>
           </div>
         </div>
+        <!-- .item__container -->
         <!-- TODO: refactoring -->
         <div :class="`${theme}__add-remove`">
           <input :class="`${theme}__checkbox`" type="checkbox" />
