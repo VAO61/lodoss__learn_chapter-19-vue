@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <!-- GitHubSearch logo -->
-    <GitHubSearchLogo class="header__logo" />
+    <a href="/">
+      <GitHubSearchLogo class="header__logo" />
+    </a>
 
     <div class="header__item header__control">
       <button class="header__btn header__btn_active btn">Search</button>

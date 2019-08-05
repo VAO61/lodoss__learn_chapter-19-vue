@@ -57,5 +57,15 @@
 
   &__btn {
     padding: 9px 36px 10px 37px;
+    transition: background-color $time;
+
+    &:hover,
+    &:focus {
+      background-color: $color-brand_shady;
+    }
+
+    &:disabled {
+      background-color: grey;
+    }
   }
 }

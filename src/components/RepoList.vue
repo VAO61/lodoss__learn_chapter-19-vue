@@ -15,7 +15,7 @@
       <div v-for="item in getItems" :key="item.id" :class="`${theme}__item result-item`">
         <div :class="`${theme}__item-info-wrap`">
           <p class="result-item__language">Javascript</p>
-          <p class="result-item__stars">25k</p>
+          <p class="result-item__stars">{{item.stargazers_count}}</p>
         </div>
         <div class="result-item__main">
           <a href class="lnk result-item__link result-item__title">{{item.full_name}}</a>
