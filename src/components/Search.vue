@@ -3,10 +3,10 @@
     <div class="search__form form">
       <div class="form__item">
         <!-- <select v-model="type.model" id="selectType" onchange="testFunction()"> -->
-        <select class="form__select" v-model="type.model" id="selectType">
+        <select class="form__select" v-model="typeValue" id="selectType">
           <option
             class="form__option"
-            v-for="option in type.options"
+            v-for="option in typeList"
             v-bind:key="option"
             :value="option"
           >{{option}}</option>
@@ -14,10 +14,10 @@
         <label class="form__label" for="selectType">Type</label>
       </div>
       <div class="form__item">
-        <select class="form__select" v-model="language.model" id="selectLanguage">
+        <select class="form__select" v-model="languageValue" id="selectLanguage">
           <option
             class="form__option"
-            v-for="option in language.options"
+            v-for="option in languageList"
             :key="option"
             :value="option"
           >{{option}}</option>
@@ -26,11 +26,17 @@
       </div>
       <div class="form__item">
         <!-- модификатор .trim удаляет пробелы в начале и в конце строки -->
-        <input class="form__input" id="typeForSearch" type="text" v-model.trim="inputValue" />
+        <input
+          class="form__input"
+          id="typeForSearch"
+          type="text"
+          v-model.trim="searchValue"
+          @keyup.enter="getData"
+        />
         <!-- placeholder="" -->
         <label class="form__label" for="typeForSearch">Type here for search</label>
       </div>
-      <button class="form__btn btn btn_brand" @click="createJSON">search</button>
+      <button class="form__btn btn btn_brand" :disabled="isDisableSearch" @click="getData">search</button>
       <!-- TODO: v-model="readme" -->
     </div>
   </section>
@@ -38,6 +44,7 @@
 
 <script>
 // import axios from "axios";
+import getJSON from "../api/getJSON.js";
 /**
  * +json on the end in string-url
  * // https://api.github.com/user/repos?page=50&per_page=100
@@ -48,42 +55,50 @@
 export default {
   data() {
     return {
-      type: {
-        type: "select",
-        label: "type",
-        model: "type",
-        options: ["repositories"]
-      },
-      language: {
-        type: "select",
-        label: "language",
-        model: "language",
-        options: [
-          "Javascript",
-          "CSS",
-          "HTML",
-          "PHP",
-          "Ruby",
-          "C++",
-          "Python",
-          "C#",
-          "Java",
-          "Go",
-          "Haskel"
-        ]
-      },
-      inputValue: {
-        type: "text",
-        label: "Type here for search",
-        model: "inputValue"
-      }
+      typeList: ["repositories"],
+      languageList: [
+        "Javascript",
+        "CSS",
+        "HTML",
+        "PHP",
+        "Ruby",
+        "C++",
+        "Python",
+        "C#",
+        "Java",
+        "Go",
+        "Haskel"
+      ],
+      typeValue: "",
+      languageValue: "",
+      searchValue: "",
+      items: []
     };
   },
-  methods: {
-    createJSON: function() {
-      return console.log(
-        `https://api.github.com/search/${this.type.model}?q=${this.inputValue}+language:${this.language.model}&sort=stars&order=desc`
+  // mounted() {
+  //   this.getData();
+  // },
+  computed: {
+    isDisableSearch() {
+      return (
+        this.searchValue === "" ||
+        this.typeValue === "" ||
+        this.languageValue === ""
       );
+    }
+  },
+  methods: {
+    async getData() {
+      if (this.isDisableSearch) {
+        return;
+      }
+
+      const { data } = await getJSON({
+        type: this.typeValue,
+        searchValue: this.searchValue,
+        lang: this.languageValue
+      });
+      this.items = data.items;
     }
     // getItemData: function(items) {
     //   return items.map(item => {
