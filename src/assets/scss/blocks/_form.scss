@@ -10,7 +10,8 @@
   // &__select::-ms-expand {  /* для IE */
   //   display: none;
   // }
-  &__select {
+  &__select,
+  &__input {
     appearance: none;
     outline: none;
     width: 100%;
@@ -22,6 +23,7 @@
     border-bottom: 1px solid $color-brand;
     border-left: none;
     font-size: inherit;
+    padding: 7px 0;
 
     // TODO: Алло, это <select>
     // &::after {
@@ -36,11 +38,11 @@
     // }
   }
 
-  &__option {
-    &:checked {
-      background: red;
-    }
-  }
+  // &__option {
+  //   &:checked {
+  //     background: red;
+  //   }
+  // }
 
   &__label {
     visibility: hidden;

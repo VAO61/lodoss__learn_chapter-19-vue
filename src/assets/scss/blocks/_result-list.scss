@@ -4,7 +4,7 @@ $module-tile: '.result-tile';
 .result-list {
   &__control {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 60px;
@@ -72,6 +72,6 @@ $module-tile: '.result-tile';
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
   }
 }

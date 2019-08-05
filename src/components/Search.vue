@@ -24,18 +24,25 @@
         </select>
         <label class="form__label" for="selectLanguage">Language</label>
       </div>
-      <div class="form__item">Type here for search</div>
-      <button class="form__btn btn btn_brand">search</button>
+      <div class="form__item">
+        <input class="form__input" id="typeForSearch" type="text" v-model="inputValue" />
+        <!-- <input class="form__input" id="typeForSearch" type="text" /> -->
+        <label class="form__label" for="typeForSearch">Type here for search</label>
+      </div>
+      <button class="form__btn btn btn_brand" @click="createJSON">search</button>
       <!-- TODO: v-model="readme" -->
     </div>
   </section>
 </template>
 
 <script>
-// const testFunction = () => {
-//   document.querySelector("select").style.backgroundColor = "red";
-// };
-// testFunction();
+/**
+ * +json on the end in string-url
+ * // https://api.github.com/user/repos?page=50&per_page=100
+ *
+ * https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc
+ * stars -> stargazers_count // кол-во "звезд"
+ */
 export default {
   data() {
     return {
@@ -43,7 +50,7 @@ export default {
         type: "select",
         label: "type",
         model: "type",
-        options: ["Repositories"]
+        options: ["repositories"]
       },
       language: {
         type: "select",
@@ -62,8 +69,20 @@ export default {
           "Go",
           "Haskel"
         ]
+      },
+      inputValue: {
+        type: "text",
+        label: "Type here for search",
+        model: "inputValue"
       }
     };
+  },
+  methods: {
+    createJSON: function() {
+      return console.log(
+        `https://api.github.com/search/${this.type.model}?q=${this.inputValue}+language:${this.language.model}&sort=stars&order=desc`
+      );
+    }
   }
 };
 </script>
