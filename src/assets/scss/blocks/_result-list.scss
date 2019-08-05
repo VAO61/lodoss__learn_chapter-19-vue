@@ -22,6 +22,10 @@ $module-tile: '.result-tile';
       // }
     }
   }
+
+  * {
+    transition: all $time;
+  }
 }
 
 #{$module-tile} {
@@ -51,6 +55,18 @@ $module-tile: '.result-tile';
     justify-content: space-between;
     align-items: center;
   }
+
+  &__add-remove {
+    text-align: center;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    margin-top: 50px;
+  }
 }
 
 // ----------------
@@ -66,6 +82,8 @@ $module-tile: '.result-tile';
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    border-top: 1px solid $color-text_bright;
+    padding-top: 30px;
   }
 
   &__item-info-wrap {
@@ -74,4 +92,70 @@ $module-tile: '.result-tile';
     justify-content: space-between;
     align-items: flex-end;
   }
+
+  &__checkbox {
+    margin-right: 43px;
+  }
+
+  &__button {
+    display: none;
+  }
+
+  // &__item-checkbox-container {
+  //   // display: block;
+  //   // position: relative;
+  //   // padding-left: 35px;
+  //   // margin-bottom: 12px;
+  //   margin-top: 3px;
+  //   margin-right: 34px;
+  //   cursor: pointer;
+  //   // font-size: 22px;
+  //   -webkit-user-select: none;
+  //   -moz-user-select: none;
+  //   -ms-user-select: none;
+  //   user-select: none;
+  // }
+
+  // &__item-checkbox {
+  //   // margin-right: 20px;
+  //   position: absolute;
+  //   opacity: 0;
+  //   cursor: pointer;
+  //   height: 0;
+  //   width: 0;
+
+  //   &:checked ~ #{$module} &__item-my-checkbox {
+  //     background-color: red;
+  //   }
+
+  //   // &::before {
+  //   //   content: '';
+  //   //   display: block;
+  //   //   position: relative;
+  //   //   z-index: 2;
+  //   //   width: 20px;
+  //   //   height: 20px;
+  //   //   top: 0;
+  //   //   left: 0;
+  //   //   border: 1px solid $color-brand;
+  //   //   border-radius: 0;
+  //   //   background-color: white;
+  //   // }
+  // }
+
+  // &__item-my-checkbox {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   height: 20px;
+  //   width: 20px;
+  //   border: 1px solid $color-brand;
+  //   background-color: $color-bright;
+  //   transition: background-color $time;
+
+  //   &:hover,
+  //   &:focus {
+  //     background-color: $color-brand_lighter;
+  //   }
+  // }
 }

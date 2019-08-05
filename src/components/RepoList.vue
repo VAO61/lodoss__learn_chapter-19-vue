@@ -25,6 +25,15 @@
             <span class="result-item__tag">cms</span>
           </div>
         </div>
+        <!-- TODO: refactoring -->
+        <div :class="`${theme}__add-remove`">
+          <input :class="`${theme}__checkbox`" type="checkbox" />
+          <button :class="`btn btn_brand ${theme}__button`">Add/Remove to/from list</button>
+        </div>
+        <!-- <div :class="`${theme}__item-checkbox-container`">
+          <input :class="`${theme}__item-checkbox`" type="checkbox" />
+          <span :class="`${theme}__item-my-checkbox`"></span>
+        </div>-->
       </div>
     </div>
   </main>
