@@ -71,8 +71,7 @@ export default {
       ],
       typeValue: "",
       languageValue: "",
-      searchValue: "",
-      items: []
+      searchValue: ""
     };
   },
   // mounted() {
@@ -98,19 +97,13 @@ export default {
         searchValue: this.searchValue,
         lang: this.languageValue
       });
-      this.items = data.items;
+      this.$store.commit("updateItems", data.items);
     }
     // getItemData: function(items) {
     //   return items.map(item => {
-    //     console.log("itemData");
+    //     re
     //   });
     // },
-    // search: async function() {
-    //   await axios.get(this.createJSON()).then(response => {
-    //     console.log("asd");
-    //     return response.data;
-    //   });
-    // }
   }
 };
 </script>

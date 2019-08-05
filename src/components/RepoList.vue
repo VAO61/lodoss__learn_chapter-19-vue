@@ -12,13 +12,13 @@
       </button>
     </div>
     <div :class="`${theme}__container`">
-      <div :class="`${theme}__item result-item`">
+      <div v-for="item in getItems" :key="item.id" :class="`${theme}__item result-item`">
         <div :class="`${theme}__item-info-wrap`">
           <p class="result-item__language">Javascript</p>
           <p class="result-item__stars">25k</p>
         </div>
         <div class="result-item__main">
-          <a href class="lnk result-item__link result-item__title">TryGhost/Ghost</a>
+          <a href class="lnk result-item__link result-item__title">{{item.full_name}}</a>
           <p class="result-item__desc">The platform for professional publishers</p>
           <div class="result-item__tags">
             <span class="result-item__tag">Javascript</span>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import IconTile from "../assets/img/icon-tile.svg";
 import IconList from "../assets/img/icon-list.svg";
 
@@ -73,6 +74,7 @@ export default {
     IconTile,
     IconList
   },
+  computed: Object.assign({}, mapGetters(["getItems"])),
   methods: {
     isActive: function(value) {
       return this.theme === value ? "result-list__btn_active" : "";

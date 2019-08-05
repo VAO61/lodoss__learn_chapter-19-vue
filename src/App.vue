@@ -3,26 +3,30 @@
   <div id="app">
     <Header />
     <Search />
-    <RepoList />
-    <!-- <ResultsNotFound /> -->
+    <RepoList v-if="getItems.length > 0" />
+    <ResultsNotFound v-else />
     <Footer />
   </div>
 </template>
 
 <script>
+import store from "./store/store";
+import { mapGetters } from "vuex";
 import Header from "./components/Header.vue";
 import Search from "./components/Search.vue";
 import RepoList from "./components/RepoList.vue";
-// import ResultsNotFound from "./components/ResultsNotFound.vue";
+import ResultsNotFound from "./components/ResultsNotFound.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
+  store,
+  computed: Object.assign({}, mapGetters(["getItems"])),
   components: {
     Header,
     Search,
     RepoList,
-    // ResultsNotFound,
+    ResultsNotFound,
     //
     Footer
   }
