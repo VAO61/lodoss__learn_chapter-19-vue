@@ -3,9 +3,9 @@
   <div id="app">
     <Header />
     <Search />
-    <RepoList />
-    <!-- <RepoList v-if="getItems.length > 0" />
-    <ResultsNotFound v-else />-->
+    <!-- <RepoList /> -->
+    <RepoList v-if="getItems.length > 0" />
+    <ResultsNotFound v-else />
     <Footer />
   </div>
 </template>

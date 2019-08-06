@@ -19,18 +19,4 @@
   &_sub-brand {
     background-color: $color-sub-brand;
   }
-
-  // temporarily
-  &_red,
-  &_blue {
-    width: 25px;
-    height: 25px;
-    margin-right: 15px;
-  }
-  &_red {
-    background-color: red;
-  }
-  &_blue {
-    background-color: blue;
-  }
 }

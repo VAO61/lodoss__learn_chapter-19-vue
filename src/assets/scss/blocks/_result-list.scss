@@ -38,6 +38,9 @@ $module-tile: '.result-tile';
     // padding-top: 100px;
   }
 
+  &__item-container {
+  }
+
   &__item {
     display: flex;
     flex-direction: row-reverse;
@@ -55,97 +58,44 @@ $module-tile: '.result-tile';
   }
 
   &__checkbox {
-    margin-right: 43px;
+    margin-right: 19px;
+    margin-top: 13px;
   }
 
   &__button {
     display: none;
   }
-
-  // &__item-checkbox-container {
-  //   // display: block;
-  //   // position: relative;
-  //   // padding-left: 35px;
-  //   // margin-bottom: 12px;
-  //   margin-top: 3px;
-  //   margin-right: 34px;
-  //   cursor: pointer;
-  //   // font-size: 22px;
-  //   -webkit-user-select: none;
-  //   -moz-user-select: none;
-  //   -ms-user-select: none;
-  //   user-select: none;
-  // }
-
-  // &__item-checkbox {
-  //   // margin-right: 20px;
-  //   position: absolute;
-  //   opacity: 0;
-  //   cursor: pointer;
-  //   height: 0;
-  //   width: 0;
-
-  //   &:checked ~ #{$module} &__item-my-checkbox {
-  //     background-color: red;
-  //   }
-
-  //   // &::before {
-  //   //   content: '';
-  //   //   display: block;
-  //   //   position: relative;
-  //   //   z-index: 2;
-  //   //   width: 20px;
-  //   //   height: 20px;
-  //   //   top: 0;
-  //   //   left: 0;
-  //   //   border: 1px solid $color-brand;
-  //   //   border-radius: 0;
-  //   //   background-color: white;
-  //   // }
-  // }
-
-  // &__item-my-checkbox {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   height: 20px;
-  //   width: 20px;
-  //   border: 1px solid $color-brand;
-  //   background-color: $color-bright;
-  //   transition: background-color $time;
-
-  //   &:hover,
-  //   &:focus {
-  //     background-color: $color-brand_lighter;
-  //   }
-  // }
 }
 
 // ----------------
 
 #{$module-tile} {
   &__container {
+    // padding-top: 100px;
     display: flex;
     flex-wrap: wrap;
-    // padding-top: 100px;
+  }
+
+  &__item-container {
+    flex-basis: 50%;
+    margin-bottom: 30px;
+
+    &:nth-child(2n + 1) {
+      padding-right: 15px;
+    }
+
+    &:nth-child(2n) {
+      padding-left: 15px;
+    }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
-    flex-basis: calc(50% - 15px);
+    height: 100%;
     border: 1px solid $color-text_bright;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
     padding: 20px 29px 36px 41px;
-    margin-bottom: 30px;
-
-    &:nth-child(2n + 1) {
-      margin-right: 15px;
-    }
-
-    &:nth-child(2n) {
-      margin-left: 15px;
-    }
   }
 
   &__item-details {

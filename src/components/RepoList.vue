@@ -13,32 +13,34 @@
     </div>
     <div :class="`${theme}__container`">
       <div
+        :class="`${theme}__item-container` "
         v-for="item in getItems"
         :key="item.id"
         :id="item.id"
-        :class="`${theme}__item result-item`"
       >
-        <div :class="`${theme}__item-details result-item-details`">
-          <p class="result-item-details__language">{{item.language}}</p>
-          <div class="result-item-details__stars-container">
-            <IconStar class="result-item-details__icon" />
-            <p class="result-item-details__count">{{item.stargazers_count}}</p>
+        <div :class="`${theme}__item result-item`">
+          <div :class="`${theme}__item-details result-item-details`">
+            <p class="result-item-details__language">{{item.language}}</p>
+            <div class="result-item-details__stars-container">
+              <IconStar class="result-item-details__icon" />
+              <p class="result-item-details__count">{{item.stargazers_count}}</p>
+            </div>
           </div>
-        </div>
-        <div class="result-item__main">
-          <a href class="lnk result-item__link">
-            <p class="result-item__title">{{item.full_name}}</p>
-          </a>
-          <p class="result-item__desc">{{item.description}}</p>
-          <div class="result-item__tags">
-            <!-- + HEADER XMR -->
-            <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
+          <div class="result-item__main">
+            <a href class="lnk result-item__link">
+              <p class="result-item__title">{{item.full_name}}</p>
+            </a>
+            <p class="result-item__desc">{{item.description}}</p>
+            <div class="result-item__tags">
+              <!-- + HEADER XMR -->
+              <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
+            </div>
           </div>
-        </div>
-        <!-- TODO: refactoring -->
-        <div :class="`${theme}__add-remove`">
-          <input :class="`${theme}__checkbox`" type="checkbox" />
-          <button :class="`btn btn_brand ${theme}__button`">Add/Remove to/from list</button>
+          <!-- TODO: refactoring -->
+          <div :class="`${theme}__add-remove`">
+            <button :class="`btn checkbox *checkbox_active ${theme}__checkbox`" type="checkbox"></button>
+            <button :class="`btn btn_brand ${theme}__button`">Add/Remove to/from list</button>
+          </div>
         </div>
       </div>
     </div>
