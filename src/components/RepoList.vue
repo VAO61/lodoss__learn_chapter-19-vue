@@ -12,18 +12,29 @@
       </button>
     </div>
     <div :class="`${theme}__container`">
-      <div v-for="item in getItems" :key="item.id" :class="`${theme}__item result-item`">
+      <div
+        v-for="item in getItems"
+        :key="item.id"
+        :id="item.id"
+        :class="`${theme}__item result-item`"
+      >
         <!-- .item__container -->
-        <div :class="`${theme}__item-info-wrap`">
-          <p class="result-item__language">Javascript</p>
-          <p class="result-item__stars">{{item.stargazers_count}}</p>
+        <div :class="`${theme}__item-details result-item-details`">
+          <p class="result-item-details__language">{{item.language}}</p>
+          <div class="result-item-details__stars-container">
+            <IconStar class="result-item-details__icon" />
+            <p class="result-item-details__count">{{item.stargazers_count}}</p>
+          </div>
         </div>
         <div class="result-item__main">
-          <a href class="lnk result-item__link result-item__title">{{item.full_name}}</a>
-          <p class="result-item__desc">The platform for professional publishers</p>
+          <a href class="lnk result-item__link">
+            <p class="result-item__title">{{item.full_name}}</p>
+          </a>
+          <p class="result-item__desc">{{item.description}}</p>
           <div class="result-item__tags">
-            <span class="result-item__tag">Javascript</span>
-            <span class="result-item__tag">cms</span>
+            <!-- + HEADER XMR -->
+            <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
+            <!-- <span class="result-item__tag">cms</span> -->
           </div>
         </div>
         <!-- .item__container -->
@@ -45,6 +56,7 @@
 import { mapGetters } from "vuex";
 import IconTile from "../assets/img/icon-tile.svg";
 import IconList from "../assets/img/icon-list.svg";
+import IconStar from "../assets/img/icon-star.svg";
 
 /**
  * TODO: Flags
@@ -74,7 +86,8 @@ export default {
   },
   components: {
     IconTile,
-    IconList
+    IconList,
+    IconStar
   },
   computed: Object.assign({}, mapGetters(["getItems"])),
   methods: {
