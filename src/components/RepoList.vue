@@ -1,13 +1,13 @@
 <template>
-  <main class="main container result-list">
-    <div class="result-list__control">
+  <main :class="`main container ${theme}`">
+    <div :class="`${theme}__control`">
       <button
-        :class="`btn result-list__btn ${isActive('result-tile')}`"
+        :class="`btn ${theme}__btn ${isActive('result-tile')}`"
         @click="setTheme('result-tile')"
       >
         <IconTile />
       </button>
-      <button :class="`btn result-list__btn ${isActive('result')}`" @click="setTheme('result')">
+      <button :class="`btn ${theme}__btn ${isActive('result')}`" @click="setTheme('result')">
         <IconList />
       </button>
     </div>
@@ -18,7 +18,6 @@
         :id="item.id"
         :class="`${theme}__item result-item`"
       >
-        <!-- .item__container -->
         <div :class="`${theme}__item-details result-item-details`">
           <p class="result-item-details__language">{{item.language}}</p>
           <div class="result-item-details__stars-container">
@@ -34,19 +33,13 @@
           <div class="result-item__tags">
             <!-- + HEADER XMR -->
             <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
-            <!-- <span class="result-item__tag">cms</span> -->
           </div>
         </div>
-        <!-- .item__container -->
         <!-- TODO: refactoring -->
         <div :class="`${theme}__add-remove`">
           <input :class="`${theme}__checkbox`" type="checkbox" />
           <button :class="`btn btn_brand ${theme}__button`">Add/Remove to/from list</button>
         </div>
-        <!-- <div :class="`${theme}__item-checkbox-container`">
-          <input :class="`${theme}__item-checkbox`" type="checkbox" />
-          <span :class="`${theme}__item-my-checkbox`"></span>
-        </div>-->
       </div>
     </div>
   </main>
@@ -92,7 +85,7 @@ export default {
   computed: Object.assign({}, mapGetters(["getItems"])),
   methods: {
     isActive: function(value) {
-      return this.theme === value ? "result-list__btn_active" : "";
+      return this.theme === value ? `${this.theme}__btn_active` : "";
     },
     setTheme: function(value) {
       this.theme = value;
