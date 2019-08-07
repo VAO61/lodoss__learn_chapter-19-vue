@@ -32,13 +32,11 @@
             </a>
             <p class="result-item__desc">{{item.description}}</p>
             <div class="result-item__tags">
-              <!-- + HEADER XMR -->
               <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
             </div>
           </div>
           <!-- TODO: refactoring -->
           <div :class="`${theme}__add-remove`">
-            <!-- checkbox_active for repo in myList -->
             <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
             <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
           </div>
@@ -54,30 +52,10 @@ import IconTile from "../assets/img/icon-tile.svg";
 import IconList from "../assets/img/icon-list.svg";
 import IconStar from "../assets/img/icon-star.svg";
 
-/**
- * TODO: Flags
- */
-
-// this.state: {
-//   isPlate: false,
-// };
-// onClick = () => {
-//   setState({
-//     isPLate: !isPLate,
-//   })
-// }
-// <div className={ isPlate? 'plate' : 'stroke'}>dsadsa</div>
-
-/**
- * For <input> -> <button>
- * https://ru.vuejs.org/v2/guide/transitions.html#%D0%9F%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%D1%8B-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B0%D0%BC%D0%B8
- */
 export default {
   data() {
     return {
-      theme: "result" // 'result' or 'result-tile'
-      // result: "result",
-      // resultTile: "result-tile"
+      theme: "result"
     };
   },
   components: {
