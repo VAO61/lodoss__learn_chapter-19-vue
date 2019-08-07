@@ -1,13 +1,13 @@
 <template>
   <header class="header">
-    <a href="/">
+    <router-link to="/">
       <GitHubSearchLogo class="header__logo" />
-    </a>
+    </router-link>
     <div class="header__item header__control">
-      <router-link class="link" to="/search">
+      <router-link class="link header__link" to="/search">
         <button class="btn header__btn">Search</button>
       </router-link>
-      <router-link class="link" to="/my-list">
+      <router-link class="link header__link" to="/my-list">
         <button class="btn header__btn header__btn_active">My list</button>
       </router-link>
     </div>

@@ -1,19 +1,24 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import RepoList from '../components/RepoList.vue';
-import MyRepoList from '../components/MyRepoList.vue';
+import Router from 'vue-router';
+import SearchResult from '../views/SearchResult';
+import MyList from '../views/MyList.vue';
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-export default new VueRouter({
+export default new Router({
+  mode: 'history',
   routes: [
     {
+      path: '/',
+      component: SearchResult
+    },
+    {
       path: '/search',
-      component: RepoList
+      component: SearchResult
     },
     {
       path: '/my-list',
-      component: MyRepoList
+      component: MyList
     }
   ]
 });
