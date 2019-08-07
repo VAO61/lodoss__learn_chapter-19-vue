@@ -1,13 +1,11 @@
 <template>
   <header class="header">
-    <!-- GitHubSearch logo -->
     <a href="/">
       <GitHubSearchLogo class="header__logo" />
     </a>
-
     <div class="header__item header__control">
-      <button class="header__btn header__btn_active btn">Search</button>
-      <button class="header__btn header__btn btn">My list</button>
+      <button class="btn header__btn">Search</button>
+      <button class="btn header__btn header__btn_active">My list</button>
     </div>
   </header>
 </template>

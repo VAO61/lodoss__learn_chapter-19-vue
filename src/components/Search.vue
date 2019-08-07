@@ -3,6 +3,7 @@
     <div class="search__form form">
       <div class="form__item">
         <!-- <select v-model="type.model" id="selectType" onchange="testFunction()"> -->
+        <!-- Need refactoring select & options => div -->
         <select class="form__select" v-model="typeValue" id="selectType">
           <option
             class="form__option"

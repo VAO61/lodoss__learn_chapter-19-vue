@@ -38,6 +38,7 @@
           </div>
           <!-- TODO: refactoring -->
           <div :class="`${theme}__add-remove`">
+            <!-- checkbox_active for repo in myList -->
             <button :class="`btn checkbox *checkbox_active ${theme}__checkbox`" type="checkbox"></button>
             <button :class="`btn btn_brand ${theme}__button`">Add/Remove to/from list</button>
           </div>
