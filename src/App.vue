@@ -1,9 +1,6 @@
 <template>
   <div id="app">
     <Header />
-    <!-- <RepoList /> -->
-    <!-- <RepoList v-if="getItems.length > 0" /> -->
-    <!-- <ResultsNotFound v-else /> -->
     <router-view />
     <Footer />
   </div>
@@ -13,7 +10,7 @@
 import store from "./store/store";
 import { mapGetters } from "vuex";
 import Header from "./components/Header.vue";
-import Search from "./components/Search.vue";
+// import Search from "./components/Search.vue";
 // import RepoList from "./components/RepoList.vue";
 // import ResultsNotFound from "./components/ResultsNotFound.vue";
 import Footer from "./components/Footer.vue";
@@ -24,7 +21,7 @@ export default {
   computed: Object.assign({}, mapGetters(["getItems"])),
   components: {
     Header,
-    Search,
+    // Search,
     // RepoList,
     // ResultsNotFound,
     //

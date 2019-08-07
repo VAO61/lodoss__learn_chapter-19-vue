@@ -1,7 +1,7 @@
 .no-results {
-  // Sorry, BEM!
+  height: 100%;
   &__container,
-  svg {
+  &__bg {
     position: absolute;
     top: 50%;
     left: 50%;

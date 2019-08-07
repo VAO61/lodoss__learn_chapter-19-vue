@@ -60,6 +60,19 @@ $module-tile: '.result-tile';
   &__checkbox {
     margin-right: 19px;
     margin-top: 13px;
+
+    &.active {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background-color: $color-brand;
+      }
+    }
   }
 
   &__button {
@@ -114,5 +127,9 @@ $module-tile: '.result-tile';
 
   &__button {
     margin-top: 50px;
+
+    &.active {
+      background-color: $color-sub-brand;
+    }
   }
 }
