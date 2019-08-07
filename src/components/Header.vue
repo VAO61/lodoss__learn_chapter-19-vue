@@ -4,8 +4,12 @@
       <GitHubSearchLogo class="header__logo" />
     </a>
     <div class="header__item header__control">
-      <button class="btn header__btn">Search</button>
-      <button class="btn header__btn header__btn_active">My list</button>
+      <router-link class="link" to="/search">
+        <button class="btn header__btn">Search</button>
+      </router-link>
+      <router-link class="link" to="/my-list">
+        <button class="btn header__btn header__btn_active">My list</button>
+      </router-link>
     </div>
   </header>
 </template>

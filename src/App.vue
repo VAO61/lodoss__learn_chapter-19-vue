@@ -7,6 +7,7 @@
     <RepoList v-if="getItems.length > 0" />
     <ResultsNotFound v-else />
     <Footer />
+    <router-view></router-view>
   </div>
 </template>
 
