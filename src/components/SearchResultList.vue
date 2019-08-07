@@ -39,8 +39,8 @@
           <!-- TODO: refactoring -->
           <div :class="`${theme}__add-remove`">
             <!-- checkbox_active for repo in myList -->
-            <button :class="`btn checkbox *checkbox_active ${theme}__checkbox`" type="checkbox"></button>
-            <button :class="`btn btn_brand ${theme}__button`">Add/Remove to/from list</button>
+            <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
+            <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
           </div>
         </div>
       </div>
@@ -85,13 +85,22 @@ export default {
     IconList,
     IconStar
   },
-  computed: Object.assign({}, mapGetters(["getItems"])),
+  computed: Object.assign(mapGetters(["getItems", "isExistsById"]), {}),
   methods: {
+    addOrRemoveRepo: function(item) {
+      this.$store.commit('addOrRemoveRepo', item);
+    },
     isActive: function(value) {
       return this.theme === value ? `${this.theme}__btn_active` : "";
     },
     setTheme: function(value) {
       this.theme = value;
+    },
+    getClassNameActive: function (id) {
+      return this.isExistsById(id) ? 'active' : '';
+    },
+    getButtonText: function(id) {
+      return this.isExistsById(id) ? 'Remove from list' : 'Add to list';
     }
   }
 };

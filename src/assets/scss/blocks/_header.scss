@@ -15,14 +15,17 @@
     padding-bottom: $offset;
   }
 
-  &__btn {
-    padding-right: $offset;
-    font-size: 1em;
-    color: $color-bright;
+  &__link {
+    margin-right: $offset;
 
     &:last-child {
-      padding-right: 0;
+      margin-right: 0;
     }
+  }
+
+  &__btn {
+    font-size: 1em;
+    color: $color-bright;
 
     &_active {
       color: $color-text_lighter;

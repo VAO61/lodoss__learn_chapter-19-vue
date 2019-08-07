@@ -1,0 +1,110 @@
+<template>
+  <main :class="`main container ${theme}`">
+    <div :class="`${theme}__control`">
+      <button
+        :class="`btn ${theme}__btn ${isActive('result-tile')}`"
+        @click="setTheme('result-tile')"
+      >
+        <IconTile />
+      </button>
+      <button :class="`btn ${theme}__btn ${isActive('result')}`" @click="setTheme('result')">
+        <IconList />
+      </button>
+    </div>
+    <div :class="`${theme}__container`">
+      <div
+        :class="`${theme}__item-container` "
+        v-for="item in getMyList"
+        :key="item.id"
+        :id="item.id"
+      >
+        <div :class="`${theme}__item result-item`">
+          <div :class="`${theme}__item-details result-item-details`">
+            <p class="result-item-details__language">{{item.language}}</p>
+            <div class="result-item-details__stars-container">
+              <IconStar class="result-item-details__icon" />
+              <p class="result-item-details__count">{{item.stargazers_count}}</p>
+            </div>
+          </div>
+          <div class="result-item__main">
+            <a href="" class="lnk result-item__link">
+              <p class="result-item__title">{{item.full_name}}</p>
+            </a>
+            <p class="result-item__desc">{{item.description}}</p>
+            <div class="result-item__tags">
+              <!-- + HEADER XMR -->
+              <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
+            </div>
+          </div>
+          <!-- TODO: refactoring -->
+          <div :class="`${theme}__add-remove`">
+            <!-- checkbox_active for repo in myList -->
+            <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
+            <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script>
+import { mapGetters } from "vuex";
+import IconTile from "../assets/img/icon-tile.svg";
+import IconList from "../assets/img/icon-list.svg";
+import IconStar from "../assets/img/icon-star.svg";
+
+/**
+ * TODO: Flags
+ */
+
+// this.state: {
+//   isPlate: false,
+// };
+// onClick = () => {
+//   setState({
+//     isPLate: !isPLate,
+//   })
+// }
+// <div className={ isPlate? 'plate' : 'stroke'}>dsadsa</div>
+
+/**
+ * For <input> -> <button>
+ * https://ru.vuejs.org/v2/guide/transitions.html#%D0%9F%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%D1%8B-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B0%D0%BC%D0%B8
+ */
+export default {
+  data() {
+    return {
+      theme: "result" // 'result' or 'result-tile'
+      // result: "result",
+      // resultTile: "result-tile"
+    };
+  },
+  components: {
+    IconTile,
+    IconList,
+    IconStar
+  },
+  computed: Object.assign(mapGetters(["getMyList", "isExistsById"]), {}),
+  methods: {
+    addOrRemoveRepo: function(item) {
+      this.$store.commit('addOrRemoveRepo', item);
+    },
+    isActive: function(value) {
+      return this.theme === value ? `${this.theme}__btn_active` : "";
+    },
+    setTheme: function(value) {
+      this.theme = value;
+    },
+    getClassNameActive: function (id) {
+      return this.isExistsById(id) ? 'active' : '';
+    },
+    getButtonText: function(id) {
+      return this.isExistsById(id) ? 'Remove' : 'Add';
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+</style>
