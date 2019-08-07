@@ -1,8 +1,10 @@
 <template>
   <header class="header">
-    <router-link to="/">
+    <!-- <router-link to="/"> -->
+    <a href="/" class="link">
       <GitHubSearchLogo class="header__logo" />
-    </router-link>
+    </a>
+    <!-- </router-link> -->
     <div class="header__item header__control">
       <router-link class="link header__link" to="/search">
         <button class="btn header__btn">Search</button>

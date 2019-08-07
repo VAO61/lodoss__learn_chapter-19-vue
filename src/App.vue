@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Header />
-    <Search />
     <!-- <RepoList /> -->
     <!-- <RepoList v-if="getItems.length > 0" /> -->
     <!-- <ResultsNotFound v-else /> -->
