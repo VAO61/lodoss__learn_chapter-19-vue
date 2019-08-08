@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <Search />
+    <SearchForm />
     <SearchResultList v-if="getItems.length > 0" />
     <ResultsNotFound v-else />
   </section>
@@ -8,14 +8,14 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Search from "../components/Search";
+import SearchForm from "../components/SearchForm";
 import SearchResultList from "../components/SearchResultList";
 import ResultsNotFound from "../components/ResultsNotFound";
 
 export default {
   computed: { ...mapGetters(["getItems"]) },
   components: {
-    Search,
+    SearchForm,
     SearchResultList,
     ResultsNotFound
   }

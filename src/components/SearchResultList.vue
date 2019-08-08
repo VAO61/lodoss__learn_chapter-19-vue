@@ -18,6 +18,7 @@
         :key="item.id"
         :id="item.id"
       >
+        <ResultItem :item="item" />
         <div :class="`${theme}__item result-item`">
           <div :class="`${theme}__item-details result-item-details`">
             <p class="result-item-details__language">{{item.language}}</p>
@@ -35,7 +36,6 @@
               <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
             </div>
           </div>
-          <!-- TODO: refactoring -->
           <div :class="`${theme}__add-remove`">
             <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
             <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
@@ -51,22 +51,25 @@ import { mapGetters } from "vuex";
 import IconTile from "../assets/img/icon-tile.svg";
 import IconList from "../assets/img/icon-list.svg";
 import IconStar from "../assets/img/icon-star.svg";
+import ResultItem from "./ResultItem";
 
 export default {
+  props: ["item"],
   data() {
     return {
       theme: "result"
     };
   },
   components: {
+    ResultItem,
     IconTile,
     IconList,
     IconStar
   },
-  computed: Object.assign(mapGetters(["getItems", "isExistsById"]), {}),
+  computed: { ...mapGetters(["getItems", "isExistsById"]) },
   methods: {
     addOrRemoveRepo: function(item) {
-      this.$store.commit('addOrRemoveRepo', item);
+      this.$store.commit("addOrRemoveRepo", item);
     },
     isActive: function(value) {
       return this.theme === value ? `${this.theme}__btn_active` : "";
@@ -74,11 +77,11 @@ export default {
     setTheme: function(value) {
       this.theme = value;
     },
-    getClassNameActive: function (id) {
-      return this.isExistsById(id) ? 'active' : '';
+    getClassNameActive: function(id) {
+      return this.isExistsById(id) ? "active" : "";
     },
     getButtonText: function(id) {
-      return this.isExistsById(id) ? 'Remove from list' : 'Add to list';
+      return this.isExistsById(id) ? "Remove from list" : "Add to list";
     }
   }
 };
