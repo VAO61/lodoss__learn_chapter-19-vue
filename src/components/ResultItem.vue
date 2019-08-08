@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <!-- <div>
     <p>New common component for result list</p>
-    <p>{{item.full_name}}</p>
-  </div>
-  <!-- <div :class="`${theme}__item result-item`">
-      <div :class="`${theme}__item-details result-item-details`">
+    <p :class="`${this.$parent.theme}__item`">{{item.full_name}}</p>
+    <div class>{{theme}}</div>
+  </div> -->
+  <div :class="`${this.$parent.theme}__item result-item`">
+      <div :class="`${this.$parent.theme}__item-details result-item-details`">
         <p class="result-item-details__language">{{item.language}}</p>
         <div class="result-item-details__stars-container">
           <IconStar class="result-item-details__icon" />
@@ -20,19 +21,35 @@
           <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
         </div>
       </div>
-      <div :class="`${theme}__add-remove`">
-        <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
-        <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
+      <div :class="`${this.$parent.theme}__add-remove`">
+        <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${this.$parent.theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
+        <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${this.$parent.theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
       </div>
-  </div>-->
+  </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 // import item from "./SearchResultList";
+import IconStar from "../assets/img/icon-star.svg";
 
 export default {
-  props: ["item"]
+  props: ["item", "theme"],
+  components: {
+    IconStar
+  },
+  computed: { ...mapGetters(["getItems", "isExistsById"]) },
+  methods: {
+    addOrRemoveRepo: function(item) {
+      this.$store.commit("addOrRemoveRepo", item);
+    },
+    getClassNameActive: function(id) {
+      return this.isExistsById(id) ? "active" : "";
+    },
+    getButtonText: function(id) {
+      return this.isExistsById(id) ? "Remove from list" : "Add to list";
+    }
+  }
   // data() {
   //   return {
   //     theme: "result",

@@ -15,7 +15,7 @@ import { mapGetters } from "vuex";
 import MyResultList from "../components/MyResultList";
 
 export default {
-  computed: Object.assign({}, mapGetters(["getMyList"])),
+  computed: { ...mapGetters(["getMyList"]) },
   components: {
     MyResultList
   }

@@ -1,5 +1,6 @@
 <template>
   <main :class="`main container ${theme}`">
+    <!-- Когда вынесется в отдельный компонент можно будет удалять ${theme}__container и переносить свойства в ${theme} -->
     <div :class="`${theme}__control`">
       <button
         :class="`btn ${theme}__btn ${isActive('result-tile')}`"
@@ -18,7 +19,9 @@
         :key="item.id"
         :id="item.id"
       >
-        <div :class="`${theme}__item result-item`">
+        <ResultItem :item="item" />
+
+        <!-- <div :class="`${theme}__item result-item`">
           <div :class="`${theme}__item-details result-item-details`">
             <p class="result-item-details__language">{{item.language}}</p>
             <div class="result-item-details__stars-container">
@@ -35,12 +38,11 @@
               <span class="result-item__tag" v-for="tag in item.topics" :key="tag">{{tag}}</span>
             </div>
           </div>
-          <!-- TODO: refactoring -->
           <div :class="`${theme}__add-remove`">
             <button @click="addOrRemoveRepo(item)" :class="`btn checkbox ${theme}__checkbox ${getClassNameActive(item.id)}`" type="checkbox" />
             <button @click="addOrRemoveRepo(item)" :class="`btn btn_brand ${theme}__button ${getClassNameActive(item.id)}`">{{getButtonText(item.id)}}</button>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </main>
@@ -48,39 +50,44 @@
 
 <script>
 import { mapGetters } from "vuex";
+import ResultItem from "./ResultItem";
 import IconTile from "../assets/img/icon-tile.svg";
 import IconList from "../assets/img/icon-list.svg";
-import IconStar from "../assets/img/icon-star.svg";
+// import IconStar from "../assets/img/icon-star.svg";
 
 export default {
+  props: ["item"],
+
   data() {
     return {
       theme: "result"
     };
   },
   components: {
+    ResultItem,
     IconTile,
-    IconList,
-    IconStar
+    IconList
+    // IconStar
   },
-  computed: {... (mapGetters(["getMyList", "isExistsById"]) ) },
+  computed: { ...mapGetters(["getMyList", "isExistsById"]) },
   methods: {
-    addOrRemoveRepo: function(item) {
-      this.$store.commit('addOrRemoveRepo', item);
-    },
+    // addOrRemoveRepo: function(item) {
+    //   this.$store.commit("addOrRemoveRepo", item);
+    // },
     isActive: function(value) {
       return this.theme === value ? `${this.theme}__btn_active` : "";
     },
     setTheme: function(value) {
-      this.theme = value;
-    },
-    getClassNameActive: function (id) {
-      return this.isExistsById(id) ? 'active' : '';
-    },
-    getButtonText: function(id) {
-      return this.isExistsById(id) ? 'Remove' : 'Add';
+      return (this.theme = value);
     }
+    // getClassNameActive: function(id) {
+    //   return this.isExistsById(id) ? "active" : "";
+    // },
+    // getButtonText: function(id) {
+    //   return this.isExistsById(id) ? "Remove" : "Add";
+    // }
   }
+  // props: ['theme']
 };
 </script>
 
