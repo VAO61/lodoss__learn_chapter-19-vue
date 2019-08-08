@@ -13,7 +13,7 @@ import SearchResultList from "../components/SearchResultList";
 import ResultsNotFound from "../components/ResultsNotFound";
 
 export default {
-  computed: Object.assign({}, mapGetters(["getItems"])),
+  computed: { ...mapGetters(["getItems"]) },
   components: {
     Search,
     SearchResultList,

@@ -63,7 +63,7 @@ export default {
     IconList,
     IconStar
   },
-  computed: Object.assign(mapGetters(["getMyList", "isExistsById"]), {}),
+  computed: {... (mapGetters(["getMyList", "isExistsById"]) ) },
   methods: {
     addOrRemoveRepo: function(item) {
       this.$store.commit('addOrRemoveRepo', item);

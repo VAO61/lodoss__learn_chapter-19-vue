@@ -4,8 +4,8 @@ import axios from 'axios';
 //   headers: { Accept: 'application / vnd.github.mercy - preview + json' }
 // };
 
-const getJSON = async function({ type = 'repositories', searchValue, lang }) {
-  return await axios.get(
+const getJSON = function({ type = 'repositories', searchValue, lang }) {
+  return axios.get(
     `https://api.github.com/search/${type}?q=${searchValue}+language:${lang}&sort=stars&order=desc`,
     {
       headers: { Accept: 'application/vnd.github.mercy-preview+json' }
