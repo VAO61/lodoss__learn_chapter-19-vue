@@ -1,5 +1,5 @@
 <template>
-  <main :class="`main container ${theme}`">
+  <main :class="`main container ${takeTheme}`">
     <!-- Когда вынесется в отдельный компонент можно будет удалять ${theme}__container и переносить свойства в ${theme} -->
     <!-- <div :class="`${theme}__control`">
       <button
@@ -13,9 +13,9 @@
       </button>
     </div>-->
 
-    <div :class="`${theme}__container`">
+    <div :class="`${takeTheme}__container`">
       <div
-        :class="`${theme}__item-container` "
+        :class="`${takeTheme}__item-container` "
         v-for="item in getMyList"
         :key="item.id"
         :id="item.id"
@@ -52,8 +52,8 @@
 <script>
 import { mapGetters } from "vuex";
 import ResultItem from "./ResultItem";
-import IconTile from "../assets/img/icon-tile.svg";
-import IconList from "../assets/img/icon-list.svg";
+// import IconTile from "../assets/img/icon-tile.svg";
+// import IconList from "../assets/img/icon-list.svg";
 // import IconStar from "../assets/img/icon-star.svg";
 
 export default {
@@ -65,12 +65,12 @@ export default {
     };
   },
   components: {
-    ResultItem,
-    IconTile,
-    IconList
+    ResultItem
+    // IconTile,
+    // IconList
     // IconStar
   },
-  computed: { ...mapGetters(["getMyList", "isExistsById"]) },
+  computed: { ...mapGetters(["getMyList", "isExistsById", "takeTheme"]) },
   methods: {
     // addOrRemoveRepo: function(item) {
     //   this.$store.commit("addOrRemoveRepo", item);

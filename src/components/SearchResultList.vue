@@ -1,5 +1,5 @@
 <template>
-  <main :class="`main container ${theme}`">
+  <main :class="`main container ${takeTheme}`">
     <!-- Когда вынесется в отдельный компонент можно будет удалять ${theme}__container и переносить свойства в ${theme} -->
 
     <!-- <section :class="`${theme}__control`">
@@ -14,9 +14,9 @@
       </button>
     </section>-->
 
-    <div :class="`${theme}__container`">
+    <div :class="`${takeTheme}__container`">
       <div
-        :class="`${theme}__item-container` "
+        :class="`${takeTheme}__item-container` "
         v-for="item in getItems"
         :key="item.id"
         :id="item.id"
@@ -49,7 +49,7 @@ export default {
     // IconList
     // IconStar
   },
-  computed: { ...mapGetters(["getItems", "isExistsById"]) },
+  computed: { ...mapGetters(["getItems", "isExistsById", "takeTheme"]) },
   methods: {
     // addOrRemoveRepo: function(item) {
     //   this.$store.commit("addOrRemoveRepo", item);

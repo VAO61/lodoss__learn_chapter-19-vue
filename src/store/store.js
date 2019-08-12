@@ -1,15 +1,16 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
+import Vuex from 'vuex';
+import Vue from 'vue';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
     items: [],
     myList: [],
+    theme: 'result-tile'
   },
   mutations: {
-    updateItems (state, data) {
+    updateItems(state, data) {
       state.items = data;
     },
     addOrRemoveRepo(state, repo) {
@@ -21,18 +22,18 @@ const store = new Vuex.Store({
       }
     }
   },
-   getters: {
+  getters: {
     getItems: state => {
       return state.items.slice(0, 6);
     },
     getMyList: state => {
       return state.myList;
     },
-    isExistsById: state => id  => {
+    isExistsById: state => id => {
       return !!state.myList.find(item => item.id === id);
-    }
+    },
+    takeTheme: state => state.theme
   }
-})
+});
 
 export default store;
-

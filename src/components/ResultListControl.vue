@@ -1,32 +1,34 @@
 <template>
-  <section :class="`${theme}__control container`">
+  <section :class="`${takeTheme}__control container`">
     <button
-      :class="`btn ${theme}__btn ${isActive('result-tile')}`"
+      :class="`btn ${takeTheme}__btn ${isActive('result-tile')}`"
       @click="setTheme('result-tile')"
     >
       <IconTile />
     </button>
-    <button :class="`btn ${theme}__btn ${isActive('result')}`" @click="setTheme('result')">
+    <button :class="`btn ${takeTheme}__btn ${isActive('result')}`" @click="setTheme('result')">
       <IconList />
     </button>
   </section>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import IconTile from "../assets/img/icon-tile.svg";
 import IconList from "../assets/img/icon-list.svg";
 
 export default {
   props: ["item"],
-  data() {
-    return {
-      theme: "result"
-    };
-  },
+  // data() {
+  //   return {
+  //     theme: "result"
+  //   };
+  // },
   components: {
     IconTile,
     IconList
   },
+  computed: { ...mapGetters(["takeTheme"]) },
   methods: {
     // addOrRemoveRepo: function(item) {
     //   this.$store.commit("addOrRemoveRepo", item);
