@@ -1,7 +1,7 @@
 <template>
   <main :class="`main container ${theme}`">
     <!-- Когда вынесется в отдельный компонент можно будет удалять ${theme}__container и переносить свойства в ${theme} -->
-    <div :class="`${theme}__control`">
+    <!-- <div :class="`${theme}__control`">
       <button
         :class="`btn ${theme}__btn ${isActive('result-tile')}`"
         @click="setTheme('result-tile')"
@@ -11,7 +11,8 @@
       <button :class="`btn ${theme}__btn ${isActive('result')}`" @click="setTheme('result')">
         <IconList />
       </button>
-    </div>
+    </div>-->
+
     <div :class="`${theme}__container`">
       <div
         :class="`${theme}__item-container` "
