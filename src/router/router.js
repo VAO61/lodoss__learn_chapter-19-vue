@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import SearchList from '../views/SearchList';
-import MyList from '../views/MyList.vue';
+import Search from '../pages/Search';
+import MyList from '../pages/MyList.vue';
 
 Vue.use(Router);
 
@@ -10,11 +10,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: SearchList
+      component: Search
     },
     {
       path: '/search',
-      component: SearchList
+      component: Search
     },
     {
       path: '/my-list',

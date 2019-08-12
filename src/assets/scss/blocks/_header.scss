@@ -17,19 +17,11 @@
 
   &__link {
     margin-right: $offset;
+    font-size: 1em;
+    color: $color-text_lighter;
 
     &:last-child {
       margin-right: 0;
-    }
-  }
-
-  &__btn {
-    font-size: 1em;
-    color: $color-bright;
-
-    &_active {
-      color: $color-text_lighter;
-      cursor: default;
     }
   }
 }

@@ -15,13 +15,14 @@ $module-tile: '.result-tile';
     width: 32px;
     height: 32px;
     margin-right: 12px;
+    opacity: 0.4;
 
     &:last-child {
       margin-right: 0;
     }
 
     &_active {
-      opacity: 0.6;
+      opacity: 1;
       transition: opacity $time;
     }
   }
@@ -89,16 +90,37 @@ $module-tile: '.result-tile';
     flex-wrap: wrap;
   }
 
+  /**
+  * Modify for remove container
+  */
+
   &__item-container {
     flex-basis: 50%;
+    min-width: 50%;
     margin-bottom: 30px;
 
     &:nth-child(2n + 1) {
-      padding-right: 15px;
+      // padding-right: 15px;
+
+      &::before {
+        content: '';
+        position: relative;
+        float: right;
+        width: 15px;
+        height: 100%;
+      }
     }
 
     &:nth-child(2n) {
-      padding-left: 15px;
+      // padding-left: 15px;
+
+      &::before {
+        content: '';
+        position: relative;
+        float: left;
+        width: 15px;
+        height: 100%;
+      }
     }
   }
 

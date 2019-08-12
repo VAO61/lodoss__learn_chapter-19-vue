@@ -70,7 +70,7 @@ export default {
         "Go",
         "Haskel"
       ],
-      typeValue: "",
+      typeValue: "repositories",
       languageValue: "",
       searchValue: ""
     };
