@@ -26,7 +26,10 @@ export default {
   computed: { ...mapGetters(["takeTheme"]) },
   methods: {
     isActive: function(value) {
-      return this.theme === value ? `${this.theme}__btn_active` : "";
+      // console.log(this.$store.getters.takeTheme);
+      return this.$store.getters.takeTheme === value
+        ? `${this.$store.getters.takeTheme}__btn_active`
+        : "";
     },
     setTheme: function(value) {
       this.$store.commit("setTheme", value);
