@@ -19,32 +19,18 @@ import IconList from "../assets/img/icon-list.svg";
 
 export default {
   props: ["item"],
-  // data() {
-  //   return {
-  //     theme: "result"
-  //   };
-  // },
   components: {
     IconTile,
     IconList
   },
   computed: { ...mapGetters(["takeTheme"]) },
   methods: {
-    // addOrRemoveRepo: function(item) {
-    //   this.$store.commit("addOrRemoveRepo", item);
-    // },
     isActive: function(value) {
       return this.theme === value ? `${this.theme}__btn_active` : "";
     },
     setTheme: function(value) {
-      this.theme = value;
+      this.$store.commit("setTheme", value);
     }
-    // getClassNameActive: function(id) {
-    //   return this.isExistsById(id) ? "active" : "";
-    // },
-    // getButtonText: function(id) {
-    //   return this.isExistsById(id) ? "Remove from list" : "Add to list";
-    // }
   }
 };
 </script>
