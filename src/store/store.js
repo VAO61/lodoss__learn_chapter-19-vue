@@ -21,9 +21,6 @@ const store = new Vuex.Store({
         state.myList = [...state.myList, repo];
       }
     },
-    // isActive: function(state, value) {
-    //   return state.theme === value ? `${state.theme}__btn_active` : '';
-    // },
     setTheme: function(state, value) {
       state.theme = value;
     }

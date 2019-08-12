@@ -25,7 +25,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-// import item from "./SearchResultList";
 import IconStar from "../assets/img/icon-star.svg";
 
 export default {
@@ -45,29 +44,6 @@ export default {
       return this.isExistsById(id) ? "Remove from list" : "Add to list";
     }
   }
-  // data() {
-  //   return {
-  //     theme: "result",
-  //   };
-  // },
-  // computed: { ...mapGetters(["getItems", "isExistsById"]) },
-  // methods: {
-  //   addOrRemoveRepo: function(item) {
-  //     this.$store.commit("addOrRemoveRepo", item);
-  //   },
-  //   isActive: function(value) {
-  //     return this.theme === value ? `${this.theme}__btn_active` : "";
-  //   },
-  //   setTheme: function(value) {
-  //     this.theme = value;
-  //   },
-  //   getClassNameActive: function(id) {
-  //     return this.isExistsById(id) ? "active" : "";
-  //   },
-  //   getButtonText: function(id) {
-  //     return this.isExistsById(id) ? "Remove from list" : "Add to list";
-  //   }
-  // }
 };
 </script>
 
