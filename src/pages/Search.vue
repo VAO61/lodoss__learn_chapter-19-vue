@@ -1,6 +1,7 @@
 <template>
   <section class="main">
     <SearchForm />
+    <!-- <ResultListControl v-if="getItems.length > 0" /> -->
     <SearchResultList v-if="getItems.length > 0" />
     <ResultsNotFound v-else />
   </section>

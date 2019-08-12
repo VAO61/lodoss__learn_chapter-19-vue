@@ -1,9 +1,4 @@
 <template>
-  <!-- <div>
-    <p>New common component for result list</p>
-    <p :class="`${this.$parent.theme}__item`">{{item.full_name}}</p>
-    <div class>{{theme}}</div>
-  </div> -->
   <div :class="`${this.$parent.theme}__item result-item`">
       <div :class="`${this.$parent.theme}__item-details result-item-details`">
         <p class="result-item-details__language">{{item.language}}</p>
