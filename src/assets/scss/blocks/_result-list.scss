@@ -1,0 +1,157 @@
+$module: '.result';
+$module-tile: '.result-tile';
+
+#{$module},
+#{$module-tile} {
+  &__control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  &__btn {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    opacity: 0.4;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &_active {
+      opacity: 1;
+      transition: opacity $time;
+    }
+  }
+
+  * {
+    transition: all $time;
+  }
+}
+
+#{$module} {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    // padding-top: 100px;
+  }
+
+  &__item-container {
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-top: 1px solid $color-text_bright;
+    padding-top: 30px;
+    padding-bottom: 45px;
+  }
+
+  &__item-details {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__checkbox {
+    margin-right: 19px;
+    margin-top: 13px;
+
+    &.active {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background-color: $color-brand;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+  }
+}
+
+// ----------------
+
+#{$module-tile} {
+  &__container {
+    // padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /**
+  * Modify for remove container
+  */
+
+  &__item-container {
+    flex-basis: 50%;
+    min-width: 50%;
+    margin-bottom: 30px;
+
+    &:nth-child(2n + 1) {
+      // padding-right: 15px;
+
+      &::before {
+        content: '';
+        position: relative;
+        float: right;
+        width: 15px;
+        height: 100%;
+      }
+    }
+
+    &:nth-child(2n) {
+      // padding-left: 15px;
+
+      &::before {
+        content: '';
+        position: relative;
+        float: left;
+        width: 15px;
+        height: 100%;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid $color-text_bright;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+    padding: 20px 29px 36px 41px;
+  }
+
+  &__item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__add-remove {
+    text-align: center;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    margin-top: 50px;
+
+    &.active {
+      background-color: $color-sub-brand;
+    }
+  }
+}

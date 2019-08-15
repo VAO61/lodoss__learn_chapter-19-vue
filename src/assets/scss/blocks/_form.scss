@@ -1,0 +1,71 @@
+.form {
+  &__item {
+    padding-right: 25px;
+    flex: 1 1 auto;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  // &__select::-ms-expand {  /* для IE */
+  //   display: none;
+  // }
+  &__select,
+  &__input {
+    appearance: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 0;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid $color-brand;
+    border-left: none;
+    font-size: inherit;
+    padding: 7px 0;
+
+    // TODO: Алло, это <select>
+    // &::after {
+    //   content: 'aaa';
+    //   position: absolute;
+    //   z-index: 2;
+    //   right: 0;
+    //   top: 0;
+    //   width: 10px;
+    //   height: 10px;
+    //   color: red;
+    // }
+  }
+
+  // &__option {
+  //   &:checked {
+  //     background: red;
+  //   }
+  // }
+
+  &__label {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  //
+
+  &__btn {
+    padding: 9px 36px 10px 37px;
+    transition: background-color $time;
+
+    &:hover,
+    &:focus {
+      background-color: $color-brand_shady;
+    }
+
+    &:disabled {
+      background-color: grey;
+    }
+  }
+}

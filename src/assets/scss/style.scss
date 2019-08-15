@@ -1,0 +1,20 @@
+// main
+@import 'reset';
+@import 'variables';
+
+// blocks
+@import 'blocks/container';
+@import 'blocks/header';
+@import 'blocks/main';
+@import 'blocks/btn';
+@import 'blocks/link';
+@import 'blocks/router-link-active';
+@import 'blocks/checkbox';
+@import 'blocks/search';
+@import 'blocks/form';
+@import 'blocks/result-list';
+@import 'blocks/result-item';
+@import 'blocks/result-item-details';
+@import 'blocks/no-results';
+//
+@import 'blocks/footer';

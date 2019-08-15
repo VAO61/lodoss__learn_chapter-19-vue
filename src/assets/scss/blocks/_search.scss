@@ -1,0 +1,23 @@
+.search {
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    font-size: 14.5px;
+  }
+
+  // label {
+  //   position: absolute;
+  //   z-index: 1;
+  //   left: 0;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  // }
+
+  // select:focus + label {
+  //   // color: red;
+  //   // top: -20px;
+  //   visibility: hidden;
+  // }
+}
